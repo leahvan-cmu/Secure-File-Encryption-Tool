@@ -1,4 +1,5 @@
 # Secure File Encryption and Decryption Tool
+# Team Members: Avery Long, Leah VanNeste 
 # 4/17/2026
 
 def main():

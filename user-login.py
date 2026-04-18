@@ -7,7 +7,7 @@ import sha256
 import csv
 salt = secrets.token_bytes(16)
 
-
+# takes user input of username and password, hashes the password with a salt, and stores the username and hashed password in a csv file
 def create_user():
     username = input("Create a username: ")
     password = input("Create a password: ")
@@ -17,7 +17,7 @@ def create_user():
         writer = csv.writer(file)
         writer.writerow([username, hashed_pwd]) 
 
-
+# takes user input of username and password, hashes the password with the same salt, and checks if the hash matches the stored hash in the csv file
 def login():
     with open('users.csv', mode='r') as file:
         reader = csv.reader(file)
