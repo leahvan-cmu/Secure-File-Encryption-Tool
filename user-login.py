@@ -41,8 +41,10 @@ def login():
 
     if username in users and secrets.compare_digest(hashed_pwd, users[username][1]):
         print("Welcome back, " + username)
+        # add to log
         logging.info(f"Successful login: {username}")
     else:
         print("Incorrect password, please try again")
+        # add to log
         logging.warning(f"Failed login attempt: {username}")
 
