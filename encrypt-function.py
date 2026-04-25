@@ -1,6 +1,7 @@
 # encrypts and decrpts files using AES encryption
 import hashlib
 import secrets
+from cryptography.hazmat.primitives.ciphers import Cipher, algorithms, modes
 
 def get_key(password: str, salt: bytes) -> bytes:
     # Derive a key from the password and salt using PBKDF2
@@ -17,7 +18,7 @@ def encrypt_file(file_path: str, password: str):
         plaintext = f.read()
     
     # sets up AES for encryption
-    cipher = Cipher(algorithms.AES(key), modes.CFB(iv), backend=default_backend())
+    cipher = Cipher(algorithms.AES(key), modes.CFB(iv))
     encryptor = cipher.encryptor()
     ciphertext = encryptor.update(plaintext) + encryptor.finalize()
     
@@ -39,7 +40,7 @@ def decrypt_file(file_path: str, password: str):
     key = get_key(password, salt)
     
     # setting up AES for decryption
-    cipher = Cipher(algorithms.AES(key), modes.CFB(iv), backend=default_backend())
+    cipher = Cipher(algorithms.AES(key), modes.CFB(iv))
     decryptor = cipher.decryptor()
     plaintext = decryptor.update(ciphertext) + decryptor.finalize()
     
