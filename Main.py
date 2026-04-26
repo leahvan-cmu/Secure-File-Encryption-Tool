@@ -3,6 +3,7 @@
 # 4/28/2026
 from user_login import create_user, login
 from file_hashing import save_hash, verify_hash
+from encrypt_function import encrypt_file, decrypt_file
 
 
 def main():
@@ -41,9 +42,9 @@ def file_menu():
             verify_hash(input("File path: "))
         elif choice == '5':
             # when you finish Digital signature part, add the function for this here
-        elif choice == '6':
+        #elif choice == '6':
             # when you finish Digital signature part, add the function for this here
-        elif choice == '7':
+        #elif choice == '7':
             break
         else:
             print("Invalid choice, please try again")           
