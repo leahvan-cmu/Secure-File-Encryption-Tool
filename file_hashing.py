@@ -5,12 +5,11 @@ import secrets
 
 # reads file and returns a sha256 hash as a hex string
 def hash_file(file_path: str) -> str:
-    hash = hashlib.sha256()
     with open (file_path, 'rb') as f: 
         return hashlib.sha256(f.read()).hexdigest()
     
 # hashes are saved to a text file for later verification
-def save_hash(file_path: str, hash: str):
+def save_hash(file_path: str):
     file_hash = hash_file(file_path)
     with open(file_path + '.hash', 'w') as f:
         f.write(file_hash)
