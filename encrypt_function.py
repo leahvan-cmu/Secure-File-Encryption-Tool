@@ -45,7 +45,7 @@ def decrypt_file(file_path: str, password: str):
     plaintext = decryptor.update(ciphertext) + decryptor.finalize()
     
     # writes the decrypted plaintext to a new file without the .enc extension
-    output_path = file_path[:-4]  # removes .enc 
+    output_path = file_path[:-4] + '_Dec'  # removes .enc, adds _Dec
     with open(output_path, 'wb') as f:
         f.write(plaintext)
     print(f"File decrypted: {output_path}")
