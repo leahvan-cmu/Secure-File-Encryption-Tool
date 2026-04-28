@@ -4,6 +4,7 @@
 from user_login import create_user, login
 from file_hashing import save_hash, verify_hash
 from encrypt_function import encrypt_file, decrypt_file
+from digital_signature import sign_file, verify_signature
 
 
 def main():
@@ -17,6 +18,7 @@ def main():
             create_user()
         elif choice == '2':
             login()
+            file_menu()
         elif choice == '3':
             break
         else:
@@ -39,12 +41,12 @@ def file_menu():
         elif choice == '3':
             save_hash(input("File path: "))
         elif choice == '4':
-            verify_hash(input("File path: "))
+            verify_hash(input("Enter original file path: "))
         elif choice == '5':
-            # when you finish Digital signature part, add the function for this here
-        #elif choice == '6':
-            # when you finish Digital signature part, add the function for this here
-        #elif choice == '7':
+            sign_file(input("File path: "))
+        elif choice == '6':
+            verify_signature(input("Enter original file path: "))
+        elif choice == '7':
             break
         else:
             print("Invalid choice, please try again")           
